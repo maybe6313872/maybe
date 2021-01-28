@@ -11,3 +11,11 @@ const modules = modulesFiles.keys().reduce((modules, modulePath) => { // keys方
   modules[moduleName] = value.default
   return modules
 }, {})
+
+// 如果是通过接口下载文件流，要在AXIOS插件请求里加上responseType: 'blob'
+axios.get({
+  url: 'xxxxxx',
+  method: 'get',
+  data:{},
+  responseType: 'blob'
+})
