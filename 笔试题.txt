@@ -1,0 +1,42 @@
+1,原型链继承
+function A(){
+　　this.name="zhangsan";
+}
+
+A.prototype.getName=function(){
+ 　　return this.name;
+}
+
+function B(){
+　　this.age=20;
+}
+B.prototype=new A();
+
+2，promise写法
+var p = new Promise((resolve, reject)=>{
+    setTimeout(()=>{
+        resolve(4)
+    }, 0)
+})
+p.then((res)=>{
+    //4 res
+    console.log(res, 'res')
+})
+
+3，promise.all/race/any
+
+let p1 = new Promise((resolve, reject) => {
+  resolve('成功了')
+})
+
+let p2 = new Promise((resolve, reject) => {
+  resolve('success')
+})
+
+let p3 = Promse.reject('失败')
+
+Promise.all([p1, p2]).then((result) => {
+  console.log(result)               //['成功了', 'success']
+}).catch((error) => {
+  console.log(error)
+})
