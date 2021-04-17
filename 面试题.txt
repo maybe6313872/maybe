@@ -16,6 +16,8 @@ function f1(){
 　　}
 　　var result=f1();
 　　result(); // 999
+9, rem和vw和vh
+10，cookies，sessionStorage和localStorage
 一，代码层面的优化
 1.1、v-if 和 v-show 区分使用场景
 1.2、computed 和 watch 区分使用场景
@@ -48,6 +50,20 @@ function f1(){
 2，http缓存
 3，http头常见字段
 4，在浏览器中输入url地址的过程
+1、一次完整的HTTP事务是怎样的一个过程？
+基本流程：
+
+a. 域名解析
+
+b. 发起TCP的3次握手
+
+c. 建立TCP连接后发起http请求
+
+d. 服务器端响应http请求，浏览器得到html代码
+
+e. 浏览器解析html代码，并请求html代码中的资源
+
+f. 浏览器对页面进行渲染呈现给用户
 
 Webpack
 1，webpack执行流程
