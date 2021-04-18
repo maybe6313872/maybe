@@ -40,3 +40,26 @@ Promise.all([p1, p2]).then((result) => {
 }).catch((error) => {
   console.log(error)
 })
+3，Object.prototype.toString.call()可以检测所有的数据类型
+4，对象冒充
+function fruits() {}
+
+fruits.prototype = {
+	color: 'red',
+	say: function() {
+		console.log(this.color);
+	}
+};
+
+var apple = new fruits();
+
+apple.say();   // red, 此时方法里面的this 指的是fruits
+
+banana = {color: 'yellow'};
+apple.say.call(banana); //yellow,此时的this的指向已经通过call（）方法改变了，指向的是banana，this.color就是banana.color='yellow';
+
+apple.say.apply(banana);//yellow,同理，此时的this的指向已经通过apply（）方法改变了，指向的是banana，this.color就是banana.color ='yellow';
+
+apple.say.apply(null); //undefined, null是window下的，此时，this 就指向了window ，但是window下并没有clolr这个属性，因此this.clolr就是window.color=undefined;
+
+https://zhuanlan.zhihu.com/p/92590306

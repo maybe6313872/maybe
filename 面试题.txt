@@ -50,7 +50,7 @@ function f1(){
 2，http缓存
 3，http头常见字段
 4，在浏览器中输入url地址的过程
-1、一次完整的HTTP事务是怎样的一个过程？
+1、一次完整的HTTP事务是怎样的一个过程n？
 基本流程：
 
 a. 域名解析
@@ -67,11 +67,17 @@ f. 浏览器对页面进行渲染呈现给用户
 
 Webpack
 1，webpack执行流程
-2，webpack你用过哪些loader和plugin，或者常见的loader、plugin
-3，loader和plugin的区别
+2，webpack你用过哪些loader和plugin，或者常见的loader、plugin 
+    https://zhuanlan.zhihu.com/p/28245984
+3，loader和plugin的区别 n
 4，有没有自己实现plugin
 5，webpack热更新的实现
 
+用过打包大文件分割成小文件的插件，预渲染，打包仿真器
+
+compression-webpack-plugin 生产环境可采用gzip压缩JS和CSS 需要服务器和浏览器支持
+
+内存泄漏 1，闭包，2，未销毁的事件监听，3，定时器，延时器未销毁
 
 作用域
 
@@ -80,3 +86,5 @@ for(var i=0; i<10;i++){
     console.log(i)// 打印10
 }, 1000)
 }
+
+mock
