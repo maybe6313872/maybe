@@ -18,6 +18,7 @@ function f1(){
 　　result(); // 999
 9, rem和vw和vh
 10，cookies，sessionStorage和localStorage
+11，data用return返回是因为同一组件有可能被多次调用。避免属性污染
 一，代码层面的优化
 1.1、v-if 和 v-show 区分使用场景
 1.2、computed 和 watch 区分使用场景
