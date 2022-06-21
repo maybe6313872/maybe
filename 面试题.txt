@@ -74,7 +74,7 @@ Webpack
 4，有没有自己实现plugin
 5，webpack热更新的实现
 
-用过打包大文件分割成小文件的插件，预渲染，打包仿真器
+路由懒加载，预渲染，打包仿真器
 
 compression-webpack-plugin 生产环境可采用gzip压缩JS和CSS 需要服务器和浏览器支持
 
