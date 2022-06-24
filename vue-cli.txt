@@ -10,5 +10,5 @@
    }
 2,axios 谷歌浏览器请求路径不显示localhost办法为设置baseURL
 3,gzip压缩
-4,webpack configureWebpack 合并loader和插件到webpack 配置，
+4,webpack configureWebpack 合并loader和插件还有其他配置到webpack 配置，
 chainWebpack直接链式操作精细化配置loader和插件，loader是处理文件的如TS,VUE,CSS文件等，插件是功能性的，如gzip压缩等等
