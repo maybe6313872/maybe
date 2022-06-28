@@ -72,7 +72,7 @@ Webpack
     https://zhuanlan.zhihu.com/p/28245984
 3，loader和plugin的区别 n
 4，有没有自己实现plugin
-5，webpack热更新的实现
+5，webpack热更新的实现-resove有一个配置，CSS有一个配置，vue.config.js
 
 路由懒加载，预渲染，打包仿真器
 
