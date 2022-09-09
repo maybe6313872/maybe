@@ -3,3 +3,20 @@
 
 二，安全性问题，XSS脚本注入，例子： 如被保险人输入框输入了"><script>alert("注入的脚本内容")</script>后，页面上
 存在被保险人回显时，html就会把该script标签插入到html代码中，导致执行了脚本。处理方法
+
+三，浏览器缓存问题（版本更新后，页面有缓存内容不更新），前端是通过唯一的文件名来实现的，如chunk+hash值来实现唯一文件名，打包后的index.html
+设置meta来实现不缓存index.html
+——扩展，浏览器会默认缓存JS，css,html等文件，会造成版本更新的时候，因缓存导致用户页面没有更新内容，前端通过上一行方法实现，
+然后配置ngnix来配置文件
+    #add_header Cache-Control no-cache;
+　　#add_header Cache-Control private;
+　　add_header Cache-Control max-age=7200;
+　　if ($request_filename ~* ^.*?\.(ico|jpeg|gif|jpg|png|woff)$){
+　　　　expires 7d;
+　　}
+　　if ($request_filename ~* ^.*?\.(js|css)$){
+　　　　expires 7d;
+　　} 
+　　if ($request_filename ~* ^.*?\.(html|htm)$){
+　　　　expires 3d;
+　　}
