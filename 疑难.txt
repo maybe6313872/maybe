@@ -20,3 +20,6 @@
 　　if ($request_filename ~* ^.*?\.(html|htm)$){
 　　　　expires 3d;
 　　}
+
+四，$set问题，必须要至少浅拷贝对象，而不能直接赋值。this.$set(this.obj, 'aaa', {...this.obj.aaa})
+数组的话，例this.$set(this.list, this.list.length -1 , {新对象})

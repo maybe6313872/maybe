@@ -2,7 +2,7 @@
 2, Object.assign() 浅拷贝 深拷贝，JSON.prase(JSON.stringfy(obj))
 3, jsbrige 在window对象上挂载jsbrige对象,然后通过对象callback返回原生处理完的数据
 4，vue原理 通过监听实例对象data的getset方法，触发更新后，进watch实例的更新队列里面，然后生成
-vnode，新旧vnode对比，然后再更新DOM
+vnode，新旧vnode对比(用diff算法对比)，然后再更新DOM
 5，指令 获取指令的属性，然后vnode进行处理，如权限控制
 6，性能优化 https://juejin.cn/post/6844903913410314247
 7，闭包 函数无法调用其他函数内部的参数，通过闭包来实现
@@ -19,6 +19,7 @@ function f1(){
 9, rem和vw和vh
 10，cookies，sessionStorage和localStorage
 11，data用return返回是因为同一组件有可能被多次调用。避免属性污染
+12，vue3对比vue2优化点https://www.zhihu.com/question/478538434
 一，代码层面的优化
 1.1、v-if 和 v-show 区分使用场景
 1.2、computed 和 watch 区分使用场景
