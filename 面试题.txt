@@ -40,6 +40,7 @@ function f1(){
 2.6、优化 SourceMap
 2.7、构建结果输出分析
 2.8、Vue 项目的编译优化
+2.9、SplitChunks插件——分包
 三、基础的 Web 技术优化
 3.1、开启 gzip 压缩
 3.2、浏览器缓存
