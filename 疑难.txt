@@ -2,7 +2,7 @@
 发现es6语法，可以定位问题为babel没有对依赖包进行转化，然后可以修改babelrc配置文件来实现
 
 二，安全性问题，XSS脚本注入，例子： 如被保险人输入框输入了"><script>alert("注入的脚本内容")</script>后，页面上
-存在被保险人回显时，html就会把该script标签插入到html代码中，导致执行了脚本。处理方法
+存在被保险人回显时，html就会把该script标签插入到html代码中，导致执行了脚本。处理方法(v-html改成{{}}渲染)
 
 三，浏览器缓存问题（版本更新后，页面有缓存内容不更新），前端是通过唯一的文件名来实现的，如chunk+hash值来实现唯一文件名，打包后的index.html
 设置meta来实现不缓存index.html
@@ -25,3 +25,5 @@
 数组的话，例this.$set(this.list, this.list.length -1 , {新对象})
 
 动态渲染图片要用require包裹，因为webpack会改变路径
+五，module.exports导出， 用require引入——commonjs规范，
+    export导出 import引入——es6规范
