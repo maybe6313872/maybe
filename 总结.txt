@@ -2,3 +2,34 @@
 2，技术细节不要回避或者岔开话题、
 3，移动端适配
 4，用过哪些loader和pulagin
+
+
+技术总结
+1，防抖和节流——防抖是指多次触发方法，一段事件后执行最后一次，适用输入框输入触发， 节流是执行第一次，适用滚动事件，鼠标move事件
+var debounce = function (fn, t) {
+    var timer = null;
+    return () => {
+    clearTimeout(timer);
+    timer = setTimeout(fn, t);
+    };
+};
+var throttle = (fn, t) => {
+    var index = false;
+    return () => {
+        if (!index) {
+        index = true;
+        setTimeout(() => {
+        fn();
+        index = false;
+        }, t);
+        }
+    };
+};
+
+2，事件总线Event Bus 类似事件广播的用法 难于追踪和调试 Event和CustomEvent用法一样，后者可以带参数，前者不行
+window.addEventListener('abc', (e) => {console.log(e.detail)})
+const ev = new CustomEvent('abc', { detail: '参数'})
+window.dispatchEvent(ev)// 触发事件
+3, element.addEventListener(event, function, options);  ‌event‌：一个字符串，表示要监听的事件类型，如"click", "mouseover", "keydown"等。
+事件委托=事件冒泡，另外还有默认事件，比如A标签的默认行为
+
