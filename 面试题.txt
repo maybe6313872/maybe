@@ -16,7 +16,7 @@ function f1(){
 　　}
 　　var result=f1();
 　　result(); // 999
-9, rem和vw和vh
+9, rem和vw和vh和百分比
 10，cookies，sessionStorage和localStorage
 11，data用return返回是因为同一组件有可能被多次调用。避免属性污染
 12，vue3对比vue2优化点https://www.zhihu.com/question/478538434

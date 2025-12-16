@@ -32,4 +32,8 @@ const ev = new CustomEvent('abc', { detail: '参数'})
 window.dispatchEvent(ev)// 触发事件
 3, element.addEventListener(event, function, options);  ‌event‌：一个字符串，表示要监听的事件类型，如"click", "mouseover", "keydown"等。
 事件委托=事件冒泡，另外还有默认事件，比如A标签的默认行为
-
+4, toRef和toRefs 把响应式对象转化为Ref，
+5，v-memo，根据条件渲染v-memo=“【va1，va2】”，父组件频繁更新，子组件根据条件更新时用
+6，watch和watchEffect区别，watch明确监听某个或者某些属性，watchEffect监听所有属性
+7，父子组件的生命周期过程 父组件的setup → 子组件的setup → 父组件的beforeMount → 子组件的beforeMount → 子组件的mounted → 父组件的mounted
+8，如Bmap，要全局引用的话要在config.js里边设置externals，这样才能全局引用
