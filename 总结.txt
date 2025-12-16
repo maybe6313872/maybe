@@ -37,3 +37,31 @@ window.dispatchEvent(ev)// 触发事件
 6，watch和watchEffect区别，watch明确监听某个或者某些属性，watchEffect监听所有属性
 7，父子组件的生命周期过程 父组件的setup → 子组件的setup → 父组件的beforeMount → 子组件的beforeMount → 子组件的mounted → 父组件的mounted
 8，如Bmap，要全局引用的话要在config.js里边设置externals，这样才能全局引用
+9, 计算精度问题，可以用Math库来实现
+10，大文件上传，文件切片，然后分多个请求上传，考虑下断点续传问题，可以把切片数组index放在locstorge里边缓存
+function sliceFile(file, chunkSize) {
+    let offset = 0;
+    const chunks = [];
+    while (offset < file.size) {
+        const chunk = file.slice(offset, offset + chunkSize);
+        chunks.push(chunk);
+        offset += chunkSize;
+    }
+    return chunks;
+}
+
+async function uploadChunks(file, chunkSize, url) {
+    const chunks = sliceFile(file, chunkSize);
+    for (let i = 0; i < chunks.length; i++) {
+        const formData = new FormData();
+        formData.append('fileChunk', chunks[i]);
+        formData.append('chunkIndex', i);
+        formData.append('totalChunks', chunks.length);
+        await fetch(url, {
+            method: 'POST',
+            body: formData,
+        });
+    }
+}
+11，移动端同时适配PC和移动端，1，做2个端，2，根据设备写2套CSS，3，响应式布局（媒体查询）4，弹性布局 rem是根据html根节点的fontsize em是父节点的fontsize
+12，arr.some和every some,一真返回true，every是所有条件满足 [1,2,3].some(item => {return item > 2})
