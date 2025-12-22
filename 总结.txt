@@ -66,3 +66,4 @@ async function uploadChunks(file, chunkSize, url) {
 11，移动端同时适配PC和移动端，1，做2个端，2，根据设备写2套CSS，3，响应式布局（媒体查询）4，弹性布局 rem是根据html根节点的fontsize em是父节点的fontsize
 12，arr.some和every some,一真返回true，every是所有条件满足 [1,2,3].some(item => {return item > 2})
 13. vue3自定义hooks，类似vue2的mixin
+14，new Set([1,2,3,1,2]),数组去重,   let arr = [8, 1, 4, 3, 7, 9] arr.sort()排序,arr.sort((a, b) => a - b)升序降序
