@@ -2,3 +2,68 @@
 2，技术细节不要回避或者岔开话题、
 3，移动端适配
 4，用过哪些loader和pulagin
+
+
+技术总结
+1，防抖和节流——防抖是指多次触发方法，一段事件后执行最后一次，适用输入框输入触发， 节流是执行第一次，适用滚动事件，鼠标move事件
+var debounce = function (fn, t) {
+    var timer = null;
+    return () => {
+    clearTimeout(timer);
+    timer = setTimeout(fn, t);
+    };
+};
+var throttle = (fn, t) => {
+    var index = false;
+    return () => {
+        if (!index) {
+        index = true;
+        setTimeout(() => {
+        fn();
+        index = false;
+        }, t);
+        }
+    };
+};
+
+2，事件总线Event Bus 类似事件广播的用法 难于追踪和调试 Event和CustomEvent用法一样，后者可以带参数，前者不行
+window.addEventListener('abc', (e) => {console.log(e.detail)})
+const ev = new CustomEvent('abc', { detail: '参数'})
+window.dispatchEvent(ev)// 触发事件
+3, element.addEventListener(event, function, options);  ‌event‌：一个字符串，表示要监听的事件类型，如"click", "mouseover", "keydown"等。
+事件委托=事件冒泡，另外还有默认事件，比如A标签的默认行为
+4, toRef和toRefs 把响应式对象转化为Ref，
+5，v-memo，根据条件渲染v-memo=“【va1，va2】”，父组件频繁更新，子组件根据条件更新时用
+6，watch和watchEffect区别，watch明确监听某个或者某些属性，watchEffect监听所有属性
+7，父子组件的生命周期过程 父组件的setup → 子组件的setup → 父组件的beforeMount → 子组件的beforeMount → 子组件的mounted → 父组件的mounted
+8，如Bmap，要全局引用的话要在config.js里边设置externals，这样才能全局引用
+9, 计算精度问题，可以用Math库来实现
+10，大文件上传，文件切片，然后分多个请求上传，考虑下断点续传问题，可以把切片数组index放在locstorge里边缓存
+function sliceFile(file, chunkSize) {
+    let offset = 0;
+    const chunks = [];
+    while (offset < file.size) {
+        const chunk = file.slice(offset, offset + chunkSize);
+        chunks.push(chunk);
+        offset += chunkSize;
+    }
+    return chunks;
+}
+
+async function uploadChunks(file, chunkSize, url) {
+    const chunks = sliceFile(file, chunkSize);
+    for (let i = 0; i < chunks.length; i++) {
+        const formData = new FormData();
+        formData.append('fileChunk', chunks[i]);
+        formData.append('chunkIndex', i);
+        formData.append('totalChunks', chunks.length);
+        await fetch(url, {
+            method: 'POST',
+            body: formData,
+        });
+    }
+}
+11，移动端同时适配PC和移动端，1，做2个端，2，根据设备写2套CSS，3，响应式布局（媒体查询）4，弹性布局 rem是根据html根节点的fontsize em是父节点的fontsize
+12，arr.some和every some,一真返回true，every是所有条件满足 [1,2,3].some(item => {return item > 2})
+13. vue3自定义hooks，类似vue2的mixin
+14，new Set([1,2,3,1,2]),数组去重,   let arr = [8, 1, 4, 3, 7, 9] arr.sort()排序,arr.sort((a, b) => a - b)升序降序

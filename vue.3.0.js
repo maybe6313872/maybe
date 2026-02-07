@@ -10,4 +10,4 @@
 
 // 3.0的父子通讯，和2.0差不多，script setup默认是不对外界暴露组件实例的，所以在其他组件中通过诸如$refs和$parent是无法直接操作子/父组件的，都默认无法获取当前组件实例，所有就开始使用defineExpose
 // 父调子 通过插入的子组件名直接调用属性或者方法
-// 子调父 通过父组件provide('parentMethod', parentMethod);  然后子组件const parentMethod = inject('parentMethod');
+// 子调父 通过父组件provide('parentMethod', parentMethod);  然后子组件const parentMethod = inject('parentMethod');该API不止调用父级，相隔多级也能生效
